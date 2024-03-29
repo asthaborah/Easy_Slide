@@ -51,5 +51,10 @@ if( !class_exists( 'Easy_Slider_Post_Type') ){
                 'high'
             );
         }
+
+        // metabox html (callback function)
+        public function add_inner_meta_boxes( $post ){
+            require_once( EASY_SLIDER_PATH . 'views/easy-slider_metabox.php' );
+        }
     }
 }
