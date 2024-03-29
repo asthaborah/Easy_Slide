@@ -19,3 +19,28 @@
 if (!defined("ABSPATH")) {
     die (' hehehehehe');
 }
+
+//defining class
+if( ! class_exists( 'Easy_Slider' ) ){
+    class Easy_Slider{
+        function __construct(){
+            $this->define_constants();
+        }
+
+        //defined constants
+        public function define_constants(){
+            define( 'EASY_SLIDER_PATH', plugin_dir_path( __FILE__ ) );
+            define( 'EASY_SLIDER_URL', plugin_dir_url( __FILE__ ) );
+            define( 'EASY_SLIDER_VERSION', '1.0.0' );
+        }
+
+    }
+}
+
+if( class_exists( 'Easy_Slider' ) ){
+
+    //created object
+    $Easy_slider = new Easy_Slider();
+    
+} 
+
