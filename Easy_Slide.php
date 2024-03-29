@@ -34,13 +34,33 @@ if( ! class_exists( 'Easy_Slider' ) ){
             define( 'EASY_SLIDER_VERSION', '1.0.0' );
         }
 
+        //activation 
+        public static function activate(){
+            update_option( 'rewrite_rules', '' );
+        }
+
+        //deactivation 
+        public static function deactivate(){
+            flush_rewrite_rules();
+        }
+
+        //uninstall 
+        public static function uninstall(){
+
+        }
+
     }
 }
 
 if( class_exists( 'Easy_Slider' ) ){
 
+    // defined activation , deactivation and uninstall hooks
+    register_activation_hook( __FILE__, array( 'Easy_Slider', 'activate' ) );
+    register_deactivation_hook( __FILE__, array( 'Easy_Slider', 'deactivate' ) );
+    register_uninstall_hook( __FILE__, array( 'Easy_Slider', 'uninstall' ) );
+
     //created object
     $Easy_slider = new Easy_Slider();
-    
+
 } 
 
