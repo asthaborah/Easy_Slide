@@ -14,3 +14,8 @@
  * Text Domain:       Easy_Slider
  * Domain Path:       /languages
  */
+
+// defining ABSPATH for security purpose
+if (!defined("ABSPATH")) {
+    die (' hehehehehe');
+}
