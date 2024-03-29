@@ -25,6 +25,9 @@ if( ! class_exists( 'Easy_Slider' ) ){
     class Easy_Slider{
         function __construct(){
             $this->define_constants();
+
+            require_once( EASY_SLIDER_PATH . 'post-types/class.Easy-slider-cpt.php' );
+            $Easy_Slider_Post_Type = new Easy_Slider_Post_Type();
         }
 
         //defined constants
@@ -42,6 +45,7 @@ if( ! class_exists( 'Easy_Slider' ) ){
         //deactivation 
         public static function deactivate(){
             flush_rewrite_rules();
+            unregister_post_type( 'easy-slider' );
         }
 
         //uninstall 
