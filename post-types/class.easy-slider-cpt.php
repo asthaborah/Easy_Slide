@@ -9,6 +9,9 @@ if( !class_exists( 'Easy_Slider_Post_Type') ){
             
             // metabox
             add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
+
+            //saving the data of metabox in database
+            add_action( 'save_post', array( $this, 'save_post' ), 10, 2 );
         }
 
         public function create_post_type(){
@@ -55,6 +58,22 @@ if( !class_exists( 'Easy_Slider_Post_Type') ){
         // metabox html (callback function)
         public function add_inner_meta_boxes( $post ){
             require_once( EASY_SLIDER_PATH . 'views/easy-slider_metabox.php' );
+        }
+
+        // callback function to save data into database
+        public function save_post( $post_id ){
+            if( isset( $_POST['action'] ) && $_POST['action'] == 'editpost' ){
+
+                //created four variables to store old and new data of both the custom fields
+                $old_link_text = get_post_meta( $post_id, 'easy_slider_link_text', true );
+                $new_link_text = $_POST['easy_slider_link_text'];
+                $old_link_url = get_post_meta( $post_id, 'easy_slider_link_url', true );
+                $new_link_url = $_POST['easy_slider_link_url'];
+
+                //updating the data
+                update_post_meta( $post_id, 'easy_slider_link_text', $new_link_text, $old_link_text );
+                update_post_meta( $post_id, 'easy_slider_link_url', $new_link_url, $old_link_url );
+            }
         }
     }
 }
