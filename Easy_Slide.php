@@ -27,6 +27,7 @@ if( ! class_exists( 'Easy_Slider' ) ){
             $this->define_constants();
 
             require_once( EASY_SLIDER_PATH . 'post-types/class.Easy-slider-cpt.php' );
+            //cpt object 
             $Easy_Slider_Post_Type = new Easy_Slider_Post_Type();
         }
 
@@ -45,6 +46,7 @@ if( ! class_exists( 'Easy_Slider' ) ){
         //deactivation 
         public static function deactivate(){
             flush_rewrite_rules();
+            //unregistered cpt
             unregister_post_type( 'easy-slider' );
         }
 
