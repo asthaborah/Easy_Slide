@@ -20,6 +20,9 @@ if (!class_exists('Easy_Slider_Post_Type')) {
 
             //populating cpt data
             add_action( 'manage_easy-slider_posts_custom_column', array( $this, 'easy_slider_custom_columns'), 10, 2 );
+
+            //sorting column
+            add_filter( 'manage_edit-easy-slider_sortable_columns', array( $this, 'easy_slider_sortable_columns' ) );
             
         }
 
@@ -70,6 +73,12 @@ if (!class_exists('Easy_Slider_Post_Type')) {
                     echo esc_url( get_post_meta( $post_id, 'easy_slider_link_url', true ) );
                 break;                
             }
+        }
+
+        //callback function for sorting 
+        public function easy_slider_sortable_columns( $columns ){
+            $columns['easy_slider_link_text'] = 'easy_slider_link_text';
+            return $columns;
         }
 
         // metabox callback function
