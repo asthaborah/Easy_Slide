@@ -17,6 +17,9 @@ if (!class_exists('Easy_Slider_Post_Type')) {
 
             //adding custom column
             add_filter( 'manage_easy-slider_posts_columns', array( $this, 'easy_slider_cpt_columns' ) );
+
+            //populating cpt data
+            add_action( 'manage_easy-slider_posts_custom_column', array( $this, 'easy_slider_custom_columns'), 10, 2 );
             
         }
 
@@ -55,6 +58,18 @@ if (!class_exists('Easy_Slider_Post_Type')) {
             $columns['easy_slider_link_text'] = esc_html__( 'Link Text', 'easy-slider' );
             $columns['easy_slider_link_url'] = esc_html__( 'Link URL', 'easy-slider' );
             return $columns;
+        }
+
+        //callback function for populating data
+        public function easy_slider_custom_columns( $column, $post_id ){
+            switch( $column ){
+                case 'easy_slider_link_text':
+                    echo esc_html( get_post_meta( $post_id, 'easy_slider_link_text', true ) );
+                break;
+                case 'easy_slider_link_url':
+                    echo esc_url( get_post_meta( $post_id, 'easy_slider_link_url', true ) );
+                break;                
+            }
         }
 
         // metabox callback function
