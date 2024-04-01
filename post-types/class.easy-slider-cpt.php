@@ -14,6 +14,10 @@ if (!class_exists('Easy_Slider_Post_Type')) {
 
             //saving the data of metabox in database
             add_action('save_post', array($this, 'save_post'), 10, 2);
+
+            //adding custom column
+            add_filter( 'manage_easy-slider_posts_columns', array( $this, 'easy_slider_cpt_columns' ) );
+            
         }
 
         public function create_post_type()
@@ -44,6 +48,13 @@ if (!class_exists('Easy_Slider_Post_Type')) {
                     'menu_icon' => 'dashicons-images-alt2'
                 )
             );
+        }
+
+        //callback function for custom cpt column
+        public function easy_slider_cpt_columns( $columns ){
+            $columns['easy_slider_link_text'] = esc_html__( 'Link Text', 'easy-slider' );
+            $columns['easy_slider_link_url'] = esc_html__( 'Link URL', 'easy-slider' );
+            return $columns;
         }
 
         // metabox callback function
@@ -86,7 +97,7 @@ if (!class_exists('Easy_Slider_Post_Type')) {
                 //verifying if user can edit
                 if (!current_user_can('edit_page', $post_id)) {
                     return;
-                    
+
                 } elseif (!current_user_can('edit_post', $post_id)) {
                     return;
                 }
