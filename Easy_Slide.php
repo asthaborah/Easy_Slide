@@ -62,12 +62,35 @@ if( ! class_exists( 'Easy_Slider' ) ){
         //callback function of custom menu
         public function add_menu(){
             add_menu_page(
-                'Easy Slider Options',
-                'Easy Slider',
-                'manage_options',
+                'Easy Slider Options', // page title
+                'Easy Slider', //menu title
+                'manage_options', //capability
+                'easy_slider_admin', //slug
+                array( $this, 'easy_slider_settings_page' ), //callback function
+                'dashicons-images-alt2' //icon
+            );
+
+
+            //submenu 1
+            add_submenu_page(
                 'easy_slider_admin',
-                array( $this, 'easy_slider_settings_page' ),
-                'dashicons-images-alt2'
+                'Manage Slides',
+                'Manage Slides',
+                'manage_options',
+                'edit.php?post_type=easy-slider',
+                null,
+                null
+            );
+
+            //submenu 2
+            add_submenu_page(
+                'easy_slider_admin',
+                'Add New Slide',
+                'Add New Slide',
+                'manage_options',
+                'post-new.php?post_type=easy-slider',
+                null,
+                null
             );
         }
 
