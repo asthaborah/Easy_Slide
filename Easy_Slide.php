@@ -26,6 +26,9 @@ if( ! class_exists( 'Easy_Slider' ) ){
         function __construct(){
             $this->define_constants();
 
+            //custom menu
+            add_action( 'admin_menu', array( $this, 'add_menu' ) );
+
             require_once( EASY_SLIDER_PATH . 'post-types/class.Easy-slider-cpt.php' );
             //cpt object 
             $Easy_Slider_Post_Type = new Easy_Slider_Post_Type();
@@ -53,6 +56,24 @@ if( ! class_exists( 'Easy_Slider' ) ){
         //uninstall 
         public static function uninstall(){
 
+        }
+
+
+        //callback function of custom menu
+        public function add_menu(){
+            add_menu_page(
+                'Easy Slider Options',
+                'Easy Slider',
+                'manage_options',
+                'easy_slider_admin',
+                array( $this, 'easy_slider_settings_page' ),
+                'dashicons-images-alt2'
+            );
+        }
+
+        //callback function
+        public function easy_slider_settings_page(){
+            echo "This is a test page";
         }
 
     }
