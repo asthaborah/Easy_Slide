@@ -96,7 +96,7 @@ if( ! class_exists( 'Easy_Slider' ) ){
 
         //callback function
         public function easy_slider_settings_page(){
-            echo "This is a test page";
+            require( EASY_SLIDER_PATH . 'views/settings-page.php' );
         }
 
     }
