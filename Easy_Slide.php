@@ -32,6 +32,9 @@ if( ! class_exists( 'Easy_Slider' ) ){
             require_once( EASY_SLIDER_PATH . 'post-types/class.Easy-slider-cpt.php' );
             //cpt object 
             $Easy_Slider_Post_Type = new Easy_Slider_Post_Type();
+
+            require_once( EASY_SLIDER_PATH . 'class.easy-slider-settings.php' );
+            $Easy_Slider_Settings = new Easy_Slider_Settings();
         }
 
         //defined constants
