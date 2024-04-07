@@ -17,7 +17,7 @@ if( ! class_exists( 'Easy_Slider_Settings' )){
         public function admin_init(){
             
             // registered settings
-            register_setting( 'easy_slider_group', 'easy_slider_options' );
+            register_setting( 'easy_slider_group', 'easy_slider_options' , array( $this, 'easy_slider_validate' ) );
 
             // section 1
             add_settings_section(
@@ -51,7 +51,10 @@ if( ! class_exists( 'Easy_Slider_Settings' )){
                 'Slider Title',
                 array( $this, 'easy_slider_title_callback' ),
                 'easy_slider_page2',
-                'easy_slider_second_section'
+                'easy_slider_second_section',
+                array(
+                    'label_for' => 'easy_slider_title'
+                )
             );
 
             //field 2.2
@@ -60,7 +63,10 @@ if( ! class_exists( 'Easy_Slider_Settings' )){
                 'Display Bullets',
                 array( $this, 'easy_slider_bullets_callback' ),
                 'easy_slider_page2',
-                'easy_slider_second_section'
+                'easy_slider_second_section',
+                array(
+                    'label_for' => 'easy_slider_bullets'
+                )
             );
 
             //field 2.3
@@ -69,7 +75,14 @@ if( ! class_exists( 'Easy_Slider_Settings' )){
                 'Slider Style',
                 array( $this, 'easy_slider_style_callback' ),
                 'easy_slider_page2',
-                'easy_slider_second_section'
+                'easy_slider_second_section',
+                array(
+                    'items' => array(
+                        'style-1',
+                        'style-2'
+                    ),
+                    'label_for' => 'easy_slider_style'
+                )
             );
         }
 
@@ -112,20 +125,44 @@ if( ! class_exists( 'Easy_Slider_Settings' )){
         }
 
         //callback function for field 2.3 
-        public function easy_slider_style_callback(){
+        public function easy_slider_style_callback($args){
             ?>
             <select 
                 id="easy_slider_style" 
                 name="easy_slider_options[easy_slider_style]">
-                <option value="style-1" 
-                    <?php isset( self::$options['easy_slider_style'] ) ? selected( 'style-1', self::$options['easy_slider_style'], true ) : ''; ?>>Style-1</option>
-                <option value="style-2" 
-                    <?php isset( self::$options['easy_slider_style'] ) ? selected( 'style-2', self::$options['easy_slider_style'], true ) : ''; ?>>Style-2</option>
+                <?php 
+                foreach( $args['items'] as $item ):
+                ?>
+                    <option value="<?php echo esc_attr( $item ); ?>" 
+                        <?php 
+                        isset( self::$options['easy_slider_style'] ) ? selected( $item, self::$options['easy_slider_style'], true ) : ''; 
+                        ?>
+                    >
+                        <?php echo esc_html( ucfirst( $item ) ); ?>
+                    </option>                
+                <?php endforeach; ?>
             </select>
             <?php
         }
 
-
+        //validating the fields
+        public function easy_slider_validate( $input ){
+            $new_input = array();
+            foreach( $input as $key => $value ){
+                switch ($key){
+                    case 'easy_slider_title':
+                        if( empty( $value )){
+                            $value = 'Please, type some text';
+                        }
+                        $new_input[$key] = sanitize_text_field( $value );
+                    break;
+                    default:
+                        $new_input[$key] = sanitize_text_field( $value );
+                    break;
+                }
+            }
+            return $new_input;
+        }
     }
 }
 
