@@ -99,6 +99,21 @@ if( ! class_exists( 'Easy_Slider' ) ){
 
         //callback function
         public function easy_slider_settings_page(){
+            
+            //control access to our setting page
+            if( ! current_user_can( 'manage_options' ) ){
+                return;
+            }
+
+            //showing success notification when the data is saved
+            if( isset( $_GET['settings-updated'] ) ){
+                add_settings_error( 'mv_slider_options', 'mv_slider_message', 'Settings Saved', 'success' );
+            }
+        
+            //showing error message
+            settings_errors( 'mv_slider_options' );
+
+            //required settings file
             require( EASY_SLIDER_PATH . 'views/settings-page.php' );
         }
 
