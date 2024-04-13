@@ -29,6 +29,10 @@ if( ! class_exists('Easy_Slider_Shortcode')){
             if( !empty( $id ) ){
                 $id = array_map( 'absint', explode( ',', $id ) );
             }
+
+            ob_start();
+            require( EASY_SLIDER_PATH . 'views/easy-slider_shortcode.php' );
+            return ob_get_clean();
         }
     }
 }
