@@ -33,8 +33,13 @@ if( ! class_exists( 'Easy_Slider' ) ){
             //cpt object 
             $Easy_Slider_Post_Type = new Easy_Slider_Post_Type();
 
+            //settings object
             require_once( EASY_SLIDER_PATH . 'class.easy-slider-settings.php' );
             $Easy_Slider_Settings = new Easy_Slider_Settings();
+
+            //shortcode object
+            require_once( EASY_SLIDER_PATH . 'shortcodes/class.easy-slider-shortcode.php' );
+            $Easy_Slider_Shortcode = new Easy_Slider_Shortcode();
         }
 
         //defined constants
@@ -107,11 +112,11 @@ if( ! class_exists( 'Easy_Slider' ) ){
 
             //showing success notification when the data is saved
             if( isset( $_GET['settings-updated'] ) ){
-                add_settings_error( 'mv_slider_options', 'mv_slider_message', 'Settings Saved', 'success' );
+                add_settings_error( 'easy_slider_options', 'easy_slider_message', 'Settings Saved', 'success' );
             }
         
             //showing error message
-            settings_errors( 'mv_slider_options' );
+            settings_errors( 'easy_slider_options' );
 
             //required settings file
             require( EASY_SLIDER_PATH . 'views/settings-page.php' );
