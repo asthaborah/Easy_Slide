@@ -40,6 +40,8 @@ if( ! class_exists( 'Easy_Slider' ) ){
             //shortcode object
             require_once( EASY_SLIDER_PATH . 'shortcodes/class.easy-slider-shortcode.php' );
             $Easy_Slider_Shortcode = new Easy_Slider_Shortcode();
+
+            
         }
 
         //defined constants
