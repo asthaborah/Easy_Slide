@@ -41,7 +41,8 @@ if( ! class_exists( 'Easy_Slider' ) ){
             require_once( EASY_SLIDER_PATH . 'shortcodes/class.easy-slider-shortcode.php' );
             $Easy_Slider_Shortcode = new Easy_Slider_Shortcode();
 
-            
+            //enqueing scripts
+            add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ), 999 );
         }
 
         //defined constants
@@ -122,6 +123,14 @@ if( ! class_exists( 'Easy_Slider' ) ){
 
             //required settings file
             require( EASY_SLIDER_PATH . 'views/settings-page.php' );
+        }
+
+        //enqueing scripts and styles
+        public function register_scripts(){
+            wp_register_script( 'easy-slider-main-jq', EASY_SLIDER_URL . 'vendor/flexslider/jquery.flexslider-min.js', array( 'jquery' ), EASY_SLIDER_VERSION, true );
+            wp_register_script( 'easy-slider-options-js', EASY_SLIDER_URL . 'vendor/flexslider/flexslider.js', array( 'jquery' ), EASY_SLIDER_VERSION, true );
+            wp_register_style( 'easy-slider-main-css', EASY_SLIDER_URL . 'vendor/flexslider/flexslider.css', array(), EASY_SLIDER_VERSION, 'all' );
+            wp_register_style( 'easy-slider-style-css', EASY_SLIDER_URL . 'assets/css/frontend.css', array(), EASY_SLIDER_VERSION, 'all' );
         }
 
     }
