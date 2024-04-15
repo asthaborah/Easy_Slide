@@ -4,7 +4,8 @@
 <h3><?php echo ( ! empty ( $content ) ) ? esc_html( $content ) : esc_html( Easy_Slider_Settings::$options['easy_slider_title'] ); ?></h3>
 
 
-<div class="easy-slider flexslider ">
+<!-- setting style of the slider -->
+<div class="easy-slider flexslider <?php echo ( isset( Easy_Slider_Settings::$options['easy_slider_style'] ) ) ? esc_attr( Easy_Slider_Settings::$options['easy_slider_style'] ) : 'style-1'; ?>">
     <ul class="slides">
     <?php 
     
