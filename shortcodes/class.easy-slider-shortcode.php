@@ -35,11 +35,13 @@ if( ! class_exists('Easy_Slider_Shortcode')){
 
             //enqueue scripts
             wp_enqueue_script( 'easy-slider-main-jq' );
-            wp_enqueue_script( 'easy-slider-options-js' );
 
             //enqueue styles
             wp_enqueue_style( 'easy-slider-main-css' );
             wp_enqueue_style( 'easy-slider-style-css' );
+
+            //option function call
+            easy_slider_options();
             return ob_get_clean();
         }
     }
