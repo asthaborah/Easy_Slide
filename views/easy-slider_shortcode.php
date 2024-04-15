@@ -36,7 +36,7 @@
                     if (has_post_thumbnail()) {
                         the_post_thumbnail('full', array('class' => 'img-fluid'));
                     } else {
-                        echo "<img src='" . EASY_SLIDER_URL . "assets/images/default.jpg' class='img-fluid wp-post-image' />";
+                        echo easy_slider_get_placeholder_image();
                     } ?>
                     <div class="mvs-container">
                         <div class="slider-details-container">
