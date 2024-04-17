@@ -32,11 +32,11 @@ if (!class_exists('Easy_Slider_Post_Type')) {
             register_post_type(
                 'easy-slider',
                 array(
-                    'label' => 'Slider',
-                    'description'   => 'Sliders',
+                    'label' => __('Slider' , 'easy-slider'),
+                    'description'   => __('Sliders' , 'easy-slider'),
                     'labels' => array(
-                        'name'  => 'Sliders',
-                        'singular_name' => 'Slider'
+                        'name'  => __('Sliders' , 'easy-slider'),
+                        'singular_name' => __('Slider' , 'easy-slider')
                     ),
                     'public'    => true,
                     'supports'  => array('title', 'editor', 'thumbnail'),
@@ -86,7 +86,7 @@ if (!class_exists('Easy_Slider_Post_Type')) {
         {
             add_meta_box(
                 'easy_slider_meta_box',
-                'Link Options',
+                __('Link Options' , 'easy-slider'),
                 array($this, 'add_inner_meta_boxes'),
                 'easy-slider',
                 'normal',
@@ -137,7 +137,7 @@ if (!class_exists('Easy_Slider_Post_Type')) {
 
                 //updating the data
                 if (empty($new_link_text)) {
-                    update_post_meta($post_id, 'easy_slider_link_text', 'Add some text');
+                    update_post_meta($post_id, 'easy_slider_link_text', __('Add some text' , 'easy-slider'));
                 } else {
                     update_post_meta($post_id, 'easy_slider_link_text', sanitize_text_field($new_link_text), $old_link_text);
                 }
