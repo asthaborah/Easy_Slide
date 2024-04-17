@@ -26,6 +26,8 @@ if( ! class_exists( 'Easy_Slider' ) ){
         function __construct(){
             $this->define_constants();
 
+            $this->load_textdomain();
+
             //function file
             require_once( EASY_SLIDER_PATH . 'functions/functions.php' );
 
@@ -75,6 +77,14 @@ if( ! class_exists( 'Easy_Slider' ) ){
 
         }
 
+        //adding localization support
+        public function load_textdomain(){
+            load_plugin_textdomain(
+                'easy-slider',
+                false,
+                dirname( plugin_basename( __FILE__ ) ) . '/languages/'
+            );
+        }
 
         //callback function of custom menu
         public function add_menu(){
