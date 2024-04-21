@@ -89,7 +89,7 @@ if( ! class_exists( 'Easy_Slider' ) ){
         //callback function of custom menu
         public function add_menu(){
             add_menu_page(
-                __('Easy Slider Options' , 'easy-slider'), // page title
+                esc_html__('Easy Slider Options' , 'easy-slider'), // page title
                 'Easy Slider', //menu title
                 'manage_options', //capability
                 'easy_slider_admin', //slug
@@ -101,8 +101,8 @@ if( ! class_exists( 'Easy_Slider' ) ){
             //submenu 1
             add_submenu_page(
                 'easy_slider_admin',
-                __('Manage Slides' , 'easy-slider'),
-                __('Manage Slides' , 'easy-slider'),
+                esc_html__('Manage Slides' , 'easy-slider'),
+                esc_html__('Manage Slides' , 'easy-slider'),
                 'manage_options',
                 'edit.php?post_type=easy-slider',
                 null,
@@ -112,8 +112,8 @@ if( ! class_exists( 'Easy_Slider' ) ){
             //submenu 2
             add_submenu_page(
                 'easy_slider_admin',
-                __('Add New Slide' , 'easy-slider'),
-                __('Add New Slide' , 'easy-slider'),
+                esc_html__('Add New Slide' , 'easy-slider'),
+                esc_html__('Add New Slide' , 'easy-slider'),
                 'manage_options',
                 'post-new.php?post_type=easy-slider',
                 null,
@@ -131,7 +131,7 @@ if( ! class_exists( 'Easy_Slider' ) ){
 
             //showing success notification when the data is saved
             if( isset( $_GET['settings-updated'] ) ){
-                add_settings_error( 'easy_slider_options', 'easy_slider_message', __('Settings Saved' , 'easy-slider'), 'success' );
+                add_settings_error( 'easy_slider_options', 'easy_slider_message', esc_html__('Settings Saved' , 'easy-slider'), 'success' );
             }
         
             //showing error message

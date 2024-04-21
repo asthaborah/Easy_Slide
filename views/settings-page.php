@@ -16,8 +16,8 @@
     ?>
 
     <h2 class="nav-tab-wrapper">
-        <a href="?page=easy_slider_admin&tab=main_options" class="nav-tab <?php echo $active_tab == 'main_options' ? 'nav-tab-active' : ''; ?>"><?php _e('Main Options' , 'easy-slider') ?></a>
-        <a href="?page=easy_slider_admin&tab=additional_options" class="nav-tab <?php echo $active_tab == 'additional_options' ? 'nav-tab-active' : ''; ?>"><?php _e('Additional Options' , 'easy-slider') ?></a>
+        <a href="?page=easy_slider_admin&tab=main_options" class="nav-tab <?php echo $active_tab == 'main_options' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Main Options' , 'easy-slider') ?></a>
+        <a href="?page=easy_slider_admin&tab=additional_options" class="nav-tab <?php echo $active_tab == 'additional_options' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Additional Options' , 'easy-slider') ?></a>
     </h2>
 
     <!-- form -->
@@ -30,7 +30,7 @@
             settings_fields('easy_slider_group');
             do_settings_sections('easy_slider_page2');
         }
-        submit_button(__('Save Settings' , 'easy-slider'));
+        submit_button(esc_html__('Save Settings' , 'easy-slider'));
         ?>
     </form>
 </div>

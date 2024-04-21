@@ -22,7 +22,7 @@ if( ! class_exists( 'Easy_Slider_Settings' )){
             // section 1
             add_settings_section(
                 'easy_slider_main_section', //id
-                __('How does it work?' , 'easy-slider'),  //title
+                esc_html__('How does it work?' , 'easy-slider'),  //title
                 null,                 //callback function
                 'easy_slider_page1'   //page 
                 
@@ -31,7 +31,7 @@ if( ! class_exists( 'Easy_Slider_Settings' )){
             //section 2
             add_settings_section(
                 'easy_slider_second_section',
-                __('Other Plugin Options' , 'easy-slider'),
+                esc_html__('Other Plugin Options' , 'easy-slider'),
                 null,
                 'easy_slider_page2'
             );
@@ -39,7 +39,7 @@ if( ! class_exists( 'Easy_Slider_Settings' )){
             //field 1.1
             add_settings_field(
                 'easy_slider_shortcode',
-                __('Shortcode' , 'easy-slider'),
+                esc_html__('Shortcode' , 'easy-slider'),
                 array( $this, 'easy_slider_shortcode_callback' ),
                 'easy_slider_page1',
                 'easy_slider_main_section'
@@ -48,7 +48,7 @@ if( ! class_exists( 'Easy_Slider_Settings' )){
             //field 2.1
             add_settings_field(
                 'easy_slider_title',
-                __('Slider Title' , 'easy-slider'),
+                esc_html__('Slider Title' , 'easy-slider'),
                 array( $this, 'easy_slider_title_callback' ),
                 'easy_slider_page2',
                 'easy_slider_second_section',
@@ -60,7 +60,7 @@ if( ! class_exists( 'Easy_Slider_Settings' )){
             //field 2.2
             add_settings_field(
                 'easy_slider_bullets',
-                __('Display Bullets' , 'easy-slider'),
+                esc_html__('Display Bullets' , 'easy-slider'),
                 array( $this, 'easy_slider_bullets_callback' ),
                 'easy_slider_page2',
                 'easy_slider_second_section',
@@ -72,7 +72,7 @@ if( ! class_exists( 'Easy_Slider_Settings' )){
             //field 2.3
             add_settings_field(
                 'easy_slider_style',
-                __('Slider Style' , 'easy-slider'),
+                esc_html__('Slider Style' , 'easy-slider'),
                 array( $this, 'easy_slider_style_callback' ),
                 'easy_slider_page2',
                 'easy_slider_second_section',
@@ -89,7 +89,7 @@ if( ! class_exists( 'Easy_Slider_Settings' )){
         //callback function for field 1.1 (shortcode)
         public function easy_slider_shortcode_callback(){
             ?>
-            <span><?php _e('Use the shortcode [easy_slider] to display the slider in any page/post/widget' , 'easy-slider')?></span>
+            <span><?php esc_html_e('Use the shortcode [easy_slider] to display the slider in any page/post/widget' , 'easy-slider')?></span>
             <?php
         }
 
@@ -119,7 +119,7 @@ if( ! class_exists( 'Easy_Slider_Settings' )){
                         }    
                     ?>
                 />
-                <label for="easy_slider_bullets"><?php _e('Whether to display bullets or not' , 'easy-slider')?></label>
+                <label for="easy_slider_bullets"><?php esc_html_e('Whether to display bullets or not' , 'easy-slider')?></label>
                 
             <?php
         }
@@ -152,8 +152,8 @@ if( ! class_exists( 'Easy_Slider_Settings' )){
                 switch ($key){
                     case 'easy_slider_title':
                         if( empty( $value )){
-                            add_settings_error( 'easy_slider_options', 'easy_slider_message', __( 'The title field can not be left empty', 'easy-slider' ), 'error' );
-                            $value = __( 'Please, type some text', 'easy-slider' );
+                            add_settings_error( 'easy_slider_options', 'easy_slider_message', esc_html__( 'The title field can not be left empty', 'easy-slider' ), 'error' );
+                            $value = esc_html__( 'Please, type some text', 'easy-slider' );
                         }
                         $new_input[$key] = sanitize_text_field( $value );
                     break;
