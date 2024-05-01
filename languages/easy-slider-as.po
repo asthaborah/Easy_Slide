@@ -1,0 +1,117 @@
+# Blank WordPress Pot
+# Copyright 2014 ...
+# This file is distributed under the GNU General Public License v3 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: easy-slider v1.0.0\n"
+"Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
+"POT-Creation-Date: 2024-05-01 17:21+0530\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Your Team <translations@example.com>\n"
+"Language: as\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: Easy_Slide.php:92
+msgid "Easy Slider Options"
+msgstr "সহজ স্লাইডাৰ বিকল্পসমূহ"
+
+#: Easy_Slide.php:104 Easy_Slide.php:105
+msgid "Manage Slides"
+msgstr "স্লাইডসমূহ পৰিচালনা কৰক"
+
+#: Easy_Slide.php:115 Easy_Slide.php:116
+msgid "Add New Slide"
+msgstr "নতুন স্লাইড যোগ কৰক"
+
+#: Easy_Slide.php:134
+msgid "Settings Saved"
+msgstr "সংহতিসমূহ সংৰক্ষিত"
+
+#: class.easy-slider-settings.php:25
+msgid "How does it work?"
+msgstr "ই কেনেকৈ কাম কৰে?"
+
+#: class.easy-slider-settings.php:34
+msgid "Other Plugin Options"
+msgstr "অন্য প্লাগিন বিকল্পসমূহ"
+
+#: class.easy-slider-settings.php:42
+msgid "Shortcode"
+msgstr "শ্বৰ্টকোড"
+
+#: class.easy-slider-settings.php:51
+msgid "Slider Title"
+msgstr "স্লাইডাৰৰ শিৰোনাম"
+
+#: class.easy-slider-settings.php:63
+msgid "Display Bullets"
+msgstr "বুলেট প্ৰদৰ্শন কৰক"
+
+#: class.easy-slider-settings.php:75
+msgid "Slider Style"
+msgstr "স্লাইডাৰ শৈলী"
+
+#: class.easy-slider-settings.php:92
+msgid "Use the shortcode [easy_slider] to display the slider in any page/post/widget"
+msgstr "যিকোনো পৃষ্ঠা/পোষ্ট/উইজেটত স্লাইডাৰ প্ৰদৰ্শন কৰিবলে শ্বৰ্টকোড [easy_slider] ব্যৱহাৰ কৰক"
+
+#: class.easy-slider-settings.php:122
+msgid "Whether to display bullets or not"
+msgstr "গুলী প্ৰদৰ্শন কৰিব নে নহয়"
+
+#: class.easy-slider-settings.php:155
+msgid "The title field can not be left empty"
+msgstr "শিৰোনাম ক্ষেত্ৰখন খালী ৰাখিব নোৱাৰি"
+
+#: class.easy-slider-settings.php:156
+msgid "Please, type some text"
+msgstr "অনুগ্ৰহ কৰি, কিছু লিখনী টাইপ কৰক"
+
+#: post-types/class.easy-slider-cpt.php:35
+#: post-types/class.easy-slider-cpt.php:39
+msgid "Slider"
+msgstr "স্লাইডাৰ"
+
+#: post-types/class.easy-slider-cpt.php:36
+#: post-types/class.easy-slider-cpt.php:38
+msgid "Sliders"
+msgstr "স্লাইডাৰ"
+
+#: post-types/class.easy-slider-cpt.php:61 views/easy-slider_metabox.php:13
+msgid "Link Text"
+msgstr "লিংক টেক্সট"
+
+#: post-types/class.easy-slider-cpt.php:62 views/easy-slider_metabox.php:21
+msgid "Link URL"
+msgstr "লিংক ইউ আৰ এল"
+
+#: post-types/class.easy-slider-cpt.php:89
+msgid "Link Options"
+msgstr "লিংক বিকল্পসমূহ"
+
+#: post-types/class.easy-slider-cpt.php:140
+msgid "Add some text"
+msgstr "কিছু লিখনী যোগ কৰক"
+
+#: views/settings-page.php:19
+msgid "Main Options"
+msgstr "মূল বিকল্পসমূহ"
+
+#: views/settings-page.php:20
+msgid "Additional Options"
+msgstr "অতিৰিক্ত বিকল্পসমূহ"
+
+#: views/settings-page.php:33
+msgid "Save Settings"
+msgstr "সংহতিসমূহ সংৰক্ষণ কৰক"
